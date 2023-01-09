@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="OMzAc4" name="SynthFramework" projectType="audioplug" useAppConfig="0"
+              addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1"
+              pluginCharacteristicsValue="pluginIsSynth,pluginProducesMidiOut,pluginWantsMidiIn"
+              companyWebsite="Vivek" pluginManufacturer="Vivek">
+  <MAINGROUP id="N9XX4F" name="SynthFramework">
+    <GROUP id="{78BAC2B0-565D-A91E-F592-1231AAA821B6}" name="Source">
+      <GROUP id="{98A29382-FD0E-9D23-61E5-315CE2C4F9B7}" name="Maximilian">
+        <GROUP id="{ED7FC022-6B71-6A9A-AD97-B71EC92DFECC}" name="libs">
+          <FILE id="A4GXFc" name="fft.cpp" compile="1" resource="0" file="../../../../../../Maximilian/libs/fft.cpp"/>
+          <FILE id="LWsvpp" name="fft.h" compile="0" resource="0" file="../../../../../../Maximilian/libs/fft.h"/>
+          <FILE id="EvX33m" name="maxiAtoms.cpp" compile="1" resource="0" file="../../../../../../Maximilian/libs/maxiAtoms.cpp"/>
+          <FILE id="ZJwftp" name="maxiAtoms.h" compile="0" resource="0" file="../../../../../../Maximilian/libs/maxiAtoms.h"/>
+          <FILE id="YMnVoM" name="maxiBark.cpp" compile="1" resource="0" file="../../../../../../Maximilian/libs/maxiBark.cpp"/>
+          <FILE id="dk8euY" name="maxiBark.h" compile="0" resource="0" file="../../../../../../Maximilian/libs/maxiBark.h"/>
+          <FILE id="F4dixF" name="maxiFFT.cpp" compile="1" resource="0" file="../../../../../../Maximilian/libs/maxiFFT.cpp"/>
+          <FILE id="TCeUFv" name="maxiFFT.h" compile="0" resource="0" file="../../../../../../Maximilian/libs/maxiFFT.h"/>
+          <FILE id="GtMzTT" name="maxiGrains.cpp" compile="1" resource="0" file="../../../../../../Maximilian/libs/maxiGrains.cpp"/>
+          <FILE id="IVa3vt" name="maxiGrains.h" compile="0" resource="0" file="../../../../../../Maximilian/libs/maxiGrains.h"/>
+          <FILE id="LCURIh" name="maxim.h" compile="0" resource="0" file="../../../../../../Maximilian/libs/maxim.h"/>
+          <FILE id="CNRm0k" name="maxiMFCC.cpp" compile="1" resource="0" file="../../../../../../Maximilian/libs/maxiMFCC.cpp"/>
+          <FILE id="qfrPAN" name="maxiMFCC.h" compile="0" resource="0" file="../../../../../../Maximilian/libs/maxiMFCC.h"/>
+          <FILE id="zitFKR" name="sineTable.h" compile="0" resource="0" file="../../../../../../Maximilian/libs/sineTable.h"/>
+        </GROUP>
+        <FILE id="epF03a" name="main.cpp" compile="1" resource="0" file="../../../../../../Maximilian/main.cpp"/>
+        <FILE id="sKuXyC" name="maximilian.cpp" compile="1" resource="0" file="../../../../../../Maximilian/maximilian.cpp"/>
+        <FILE id="nGQY3D" name="maximilian.h" compile="0" resource="0" file="../../../../../../Maximilian/maximilian.h"/>
+        <FILE id="dFOOoh" name="stb_vorbis.c" compile="1" resource="0" file="../../../../../../Maximilian/stb_vorbis.c"/>
+        <FILE id="J0TxP0" name="stb_vorbis.h" compile="0" resource="0" file="../../../../../../Maximilian/stb_vorbis.h"/>
+      </GROUP>
+      <FILE id="AfdOXv" name="PluginProcessor.cpp" compile="1" resource="0"
+            file="Source/PluginProcessor.cpp"/>
+      <FILE id="xsOlGH" name="PluginProcessor.h" compile="0" resource="0"
+            file="Source/PluginProcessor.h"/>
+      <FILE id="vdIQgB" name="PluginEditor.cpp" compile="1" resource="0"
+            file="Source/PluginEditor.cpp"/>
+      <FILE id="K23rfa" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+      <FILE id="T2v03X" name="SynthSound.h" compile="0" resource="0" file="Source/SynthSound.h"/>
+      <FILE id="F57m16" name="SynthVoice.h" compile="0" resource="0" file="Source/SynthVoice.h"/>
+    </GROUP>
+  </MAINGROUP>
+  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
+  <EXPORTFORMATS>
+    <VS2022 targetFolder="Builds/VisualStudio2022">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="SynthFramework" headerPath="C:\Maximilian"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="SynthFramework"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="../../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../../../../JUCE/modules"/>
+      </MODULEPATHS>
+    </VS2022>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="0"
+            useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+  </MODULES>
+</JUCERPROJECT>
