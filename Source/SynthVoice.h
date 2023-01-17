@@ -15,22 +15,29 @@
 
 class SynthVoice : public SynthesiserVoice {
 public:
-    bool canPlaySound(SynthesiserSound* sound) {
+    bool canPlaySound(SynthesiserSound* sound) override {
         return dynamic_cast<SynthSound*>(sound) != nullptr;
     }
 
-    void getParam(float attack) {
+    void getParameters(float attack, float decay, float sustain, float release, float cutoffFrequency, float resonanceLevel, float gainLevel) {
         envelope.setAttack(attack);
+        envelope.setDecay(decay);
+        envelope.setSustain(sustain);
+        envelope.setRelease(release);
+
+        cutoff = cutoffFrequency;
+        resonance = resonanceLevel;
+        gain = gainLevel;
     }
 
-    void startNote(int midiNoteNumber, float velocity, SynthesiserSound* sound, int currentPitchWheelPosition) {
+    void startNote(int midiNoteNumber, float velocity, SynthesiserSound* sound, int currentPitchWheelPosition) override {
         level = velocity;
         envelope.trigger = 1;
         frequency = MidiMessage::getMidiNoteInHertz(midiNoteNumber);
         std::cout << frequency << std::endl;
     }
 
-    void stopNote(float velocity, bool allowTailoff) {
+    void stopNote(float velocity, bool allowTailoff) override {
         envelope.trigger = 0;
         allowTailoff = true;
         
@@ -39,24 +46,19 @@ public:
         }
     }
 
-    void pitchWheelMoved(int pitchWheelValued) {
+    void pitchWheelMoved(int pitchWheelValued) override {
 
     }
 
-    void controllerMoved(int controllerNumber, int newControllerValue) {
+    void controllerMoved(int controllerNumber, int newControllerValue) override {
 
     }
 
-    void renderNextBlock(AudioBuffer<float>& outputBuffer, int startSamples, int numSamples) {
-        //envelope.setAttack(20);
-        envelope.setDecay(500);
-        envelope.setSustain(0.0);
-        envelope.setRelease(60);
-        
+    void renderNextBlock(AudioBuffer<float>& outputBuffer, int startSamples, int numSamples) override {
         for (int sample = 0; sample < numSamples; sample++) {
             wave = oscillator.saw(frequency);
-            sound = envelope.adsr(wave, envelope.trigger) * level;
-            filteredSound = filter.lores(sound, 500, 0.1);
+            sound = envelope.adsr(wave, envelope.trigger) * level * gain;
+            filteredSound = filter.lores(sound, cutoff, resonance);
 
             for (int channel = 0; channel < outputBuffer.getNumChannels(); channel++) {
                 outputBuffer.addSample(channel, startSamples, filteredSound);
@@ -68,10 +70,16 @@ public:
 
 private:
     double level;
+    double gain;
+
     double frequency;
     double wave;
     double sound;
     double filteredSound;
+
+    double cutoff;
+    double resonance;
+
     maxiOsc oscillator;
     maxiEnv envelope;
     maxiFilter filter;

@@ -12,16 +12,21 @@
 //==============================================================================
 SynthFrameworkAudioProcessor::SynthFrameworkAudioProcessor()
 #ifndef JucePlugin_PreferredChannelConfigurations
-     : AudioProcessor (BusesProperties()
-                     #if ! JucePlugin_IsMidiEffect
-                      #if ! JucePlugin_IsSynth
-                       .withInput  ("Input",  juce::AudioChannelSet::stereo(), true)
-                      #endif
-                       .withOutput ("Output", juce::AudioChannelSet::stereo(), true)
-                     #endif
-                       ),
-    attackTime(0.1f)
-    //tree(*this, nullptr)
+    : AudioProcessor(BusesProperties()
+#if ! JucePlugin_IsMidiEffect
+#if ! JucePlugin_IsSynth
+        .withInput("Input", juce::AudioChannelSet::stereo(), true)
+#endif
+        .withOutput("Output", juce::AudioChannelSet::stereo(), true)
+#endif
+    ),
+    attackTime(0.1f),
+    decayTime(0.1f),
+    sustainLevel(1.0f),
+    releaseTime(0.1f),
+    cutoffFrequency(8000.0f),
+    resonanceLevel(0.0f),
+    gainLevel(1.0)
 
 #endif
 {
@@ -145,7 +150,7 @@ void SynthFrameworkAudioProcessor::processBlock (juce::AudioBuffer<float>& buffe
 {
     for (int i = 0; i < synth.getNumVoices(); i++) {
         if ((voice = dynamic_cast<SynthVoice*>(synth.getVoice(i)))) {
-            voice->getParam(attackTime);
+            voice->getParameters(attackTime, decayTime, sustainLevel, releaseTime, cutoffFrequency, resonanceLevel, gainLevel);
         }
     }
 

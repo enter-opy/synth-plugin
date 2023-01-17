@@ -33,6 +33,14 @@ private:
     SynthFrameworkAudioProcessor& audioProcessor;
 
     Slider attackSlider;
+    Slider decaySlider;
+    Slider sustainSlider;
+    Slider releaseSlider;
+
+    Slider cutoffSlider;
+    Slider resonanceSlider;
+
+    Slider gainSlider;
 
 public:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (SynthFrameworkAudioProcessorEditor)

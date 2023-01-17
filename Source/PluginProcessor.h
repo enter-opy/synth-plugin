@@ -60,6 +60,14 @@ public:
     void setStateInformation (const void* data, int sizeInBytes) override;
 
     float attackTime;
+    float decayTime;
+    float sustainLevel;
+    float releaseTime;
+
+    float cutoffFrequency;
+    float resonanceLevel;
+
+    float gainLevel;
 
 private:
     Synthesiser synth;
