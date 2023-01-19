@@ -30,6 +30,24 @@ public:
         gain = gainLevel;
     }
 
+    void getOscillatorType(int selection) {
+        wave = selection;
+    }
+
+    double getWavefromSelection() {
+        if (wave == 1) {
+            return oscillator.sinewave(frequency);
+        } else if (wave == 2) {
+            return oscillator.square(frequency);
+        } else if (wave == 3) {
+            return oscillator.triangle(frequency);
+        } else if (wave == 4) {
+            return oscillator.saw(frequency);
+        } else {
+            return oscillator.sinewave(frequency);
+        }
+    }
+
     void startNote(int midiNoteNumber, float velocity, SynthesiserSound* sound, int currentPitchWheelPosition) override {
         level = velocity;
         envelope.trigger = 1;
@@ -56,8 +74,7 @@ public:
 
     void renderNextBlock(AudioBuffer<float>& outputBuffer, int startSamples, int numSamples) override {
         for (int sample = 0; sample < numSamples; sample++) {
-            wave = oscillator.saw(frequency);
-            sound = envelope.adsr(wave, envelope.trigger) * level * gain;
+            sound = envelope.adsr(getWavefromSelection(), envelope.trigger) * level * gain;
             filteredSound = filter.lores(sound, cutoff, resonance);
 
             for (int channel = 0; channel < outputBuffer.getNumChannels(); channel++) {
@@ -73,7 +90,8 @@ private:
     double gain;
 
     double frequency;
-    double wave;
+    
+    int wave;
     double sound;
     double filteredSound;
 

@@ -69,6 +69,8 @@ public:
 
     float gainLevel;
 
+    int waveType;
+
 private:
     Synthesiser synth;
     SynthVoice* voice;

@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="OMzAc4" name="SynthFramework" projectType="audioplug" useAppConfig="0"
-              addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1"
-              pluginCharacteristicsValue="pluginIsSynth,pluginProducesMidiOut,pluginWantsMidiIn"
-              companyWebsite="Vivek" pluginManufacturer="Vivek">
+              addUsingNamespaceToJuceHeader="1" jucerFormatVersion="1" pluginCharacteristicsValue="pluginIsSynth,pluginProducesMidiOut,pluginWantsMidiIn"
+              companyWebsite="Vivek" pluginManufacturer="Vivek" displaySplashScreen="1">
   <MAINGROUP id="N9XX4F" name="SynthFramework">
     <GROUP id="{78BAC2B0-565D-A91E-F592-1231AAA821B6}" name="Source">
       <GROUP id="{98A29382-FD0E-9D23-61E5-315CE2C4F9B7}" name="Maximilian">
@@ -38,6 +37,10 @@
       <FILE id="K23rfa" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
       <FILE id="T2v03X" name="SynthSound.h" compile="0" resource="0" file="Source/SynthSound.h"/>
       <FILE id="F57m16" name="SynthVoice.h" compile="0" resource="0" file="Source/SynthVoice.h"/>
+      <FILE id="tMxXXY" name="Oscillator.cpp" compile="1" resource="0" file="Source/Oscillator.cpp"/>
+      <FILE id="Ai6BjZ" name="Oscillator.h" compile="0" resource="0" file="Source/Oscillator.h"/>
+      <FILE id="nAi274" name="Envelope.cpp" compile="1" resource="0" file="Source/Envelope.cpp"/>
+      <FILE id="WetgqZ" name="Envelope.h" compile="0" resource="0" file="Source/Envelope.h"/>
     </GROUP>
   </MAINGROUP>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>

@@ -26,7 +26,8 @@ SynthFrameworkAudioProcessor::SynthFrameworkAudioProcessor()
     releaseTime(0.1f),
     cutoffFrequency(8000.0f),
     resonanceLevel(0.0f),
-    gainLevel(1.0)
+    gainLevel(1.0),
+    waveType(1)
 
 #endif
 {
@@ -151,6 +152,8 @@ void SynthFrameworkAudioProcessor::processBlock (juce::AudioBuffer<float>& buffe
     for (int i = 0; i < synth.getNumVoices(); i++) {
         if ((voice = dynamic_cast<SynthVoice*>(synth.getVoice(i)))) {
             voice->getParameters(attackTime, decayTime, sustainLevel, releaseTime, cutoffFrequency, resonanceLevel, gainLevel);
+
+            voice->getOscillatorType(waveType);
         }
     }
 
