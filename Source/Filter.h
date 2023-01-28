@@ -1,8 +1,8 @@
 /*
   ==============================================================================
 
-    Envelope.h
-    Created: 19 Jan 2023 10:46:17pm
+    Filter.h
+    Created: 28 Jan 2023 4:47:56pm
     Author:  vivek
 
   ==============================================================================
@@ -16,12 +16,12 @@
 //==============================================================================
 /*
 */
-class Envelope  : public juce::Component,
+class Filter  : public juce::Component,
     public Slider::Listener
 {
 public:
-    Envelope(SynthFrameworkAudioProcessor&);
-    ~Envelope() override;
+    Filter(SynthFrameworkAudioProcessor&);
+    ~Filter() override;
 
     void paint (juce::Graphics&) override;
     void resized() override;
@@ -31,10 +31,10 @@ public:
 private:
     SynthFrameworkAudioProcessor& audioProcessor;
 
-    Slider attackSlider;
-    Slider decaySlider;
-    Slider sustainSlider;
-    Slider releaseSlider;
+    Slider cutoffSlider;
+    Slider resonanceSlider;
 
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Envelope)
+    Slider gainSlider;
+
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Filter)
 };

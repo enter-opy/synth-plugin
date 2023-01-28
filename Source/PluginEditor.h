@@ -11,6 +11,7 @@
 #include <JuceHeader.h>
 #include "Oscillator.h"
 #include "Envelope.h"
+#include "Filter.h"
 #include "PluginProcessor.h"
 
 //==============================================================================
@@ -33,6 +34,7 @@ private:
 
     Oscillator oscillatorGUI;
     Envelope envelopeGUI;
+    Filter filterGUI;
     
 
 public:
