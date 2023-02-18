@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="OMzAc4" name="SynthFramework" projectType="audioplug" useAppConfig="0"
+<JUCERPROJECT id="OMzAc4" name="synthplugin" projectType="audioplug" useAppConfig="0"
               addUsingNamespaceToJuceHeader="1" jucerFormatVersion="1" pluginCharacteristicsValue="pluginIsSynth,pluginProducesMidiOut,pluginWantsMidiIn"
               companyWebsite="Vivek" pluginManufacturer="Vivek" displaySplashScreen="1">
-  <MAINGROUP id="N9XX4F" name="SynthFramework">
+  <MAINGROUP id="N9XX4F" name="synthplugin">
     <GROUP id="{78BAC2B0-565D-A91E-F592-1231AAA821B6}" name="Source">
       <GROUP id="{98A29382-FD0E-9D23-61E5-315CE2C4F9B7}" name="Maximilian">
         <GROUP id="{ED7FC022-6B71-6A9A-AD97-B71EC92DFECC}" name="libs">
